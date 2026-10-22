@@ -1,0 +1,67 @@
+name: Add a resource
+description: Suggest a link for the hive coding list
+title: "Resource: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Add a page you just opened. We do not add links that fail to load, and we do not add counts or claims that are not on the page.
+
+        Read [CONTRIBUTING.md](https://github.com/thehivecode-ai/hive-coding/blob/main/CONTRIBUTING.md) before you submit.
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      description: The page's own title.
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      placeholder: https://
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What it is
+      options:
+        - Article
+        - Talk
+        - Tool
+        - Docs
+        - Project
+    validations:
+      required: true
+  - type: dropdown
+    id: section
+    attributes:
+      label: Section of the README
+      options:
+        - Where the term comes from
+        - Agents that can prepare a change
+        - Review and merge safety
+        - Community-driven development
+        - Definitions
+        - Somewhere else
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it belongs
+      description: Two or three sentences from the page itself. No slogan, and no numbers you did not read there.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I opened this URL and it loaded.
+          required: true
+        - label: This is not already in the README.
+          required: true
+        - label: I am not asking you to add a star count, a user count, or a claim the page does not make.
+          required: true
