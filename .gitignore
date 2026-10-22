@@ -1,0 +1,12 @@
+node_modules/
+dist/
+coverage/
+*.tgz
+*.egg-info/
+.eggs/
+build/
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+.github/social-preview.png.bak

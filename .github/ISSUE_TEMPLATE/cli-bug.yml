@@ -1,0 +1,40 @@
+name: CLI bug
+description: Something wrong with thehivecode init or check
+title: "CLI: "
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `thehivecode --version`, or the git commit if you ran it from a checkout.
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: node
+    attributes:
+      label: Node.js version
+      placeholder: v18.20.0
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command
+      description: The exact command. Do not include secrets.
+      render: bash
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened
+      description: Paste the output. Remove anything private from a HIVE.md before you paste it.
+    validations:
+      required: true

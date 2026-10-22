@@ -1,0 +1,36 @@
+[project]
+name = "thehivecode"
+version = "0.0.1"
+description = "Name placeholder for The Hive Code. The HIVE.md CLI is the npm package thehivecode."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [{ name = "The Hive Code" }]
+keywords = [
+  "hive coding",
+  "hivecoding",
+  "vibe coding",
+  "multi-agent",
+  "ai agents",
+  "community coding",
+  "swarm coding",
+]
+classifiers = [
+  "Development Status :: 1 - Planning",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+]
+[project.urls]
+Homepage = "https://thehivecode.ai"
+Repository = "https://github.com/thehivecode-ai/hive-coding"
+Documentation = "https://thehivecode.ai/learn/hive-md"
+
+[project.scripts]
+thehivecode = "thehivecode:main"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

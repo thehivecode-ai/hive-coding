@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  cli:
+    name: CLI (Node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [18, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Test
+        working-directory: packages/cli
+        run: npm test
+      - name: Check the repo HIVE.md files
+        run: |
+          node packages/cli/bin/thehivecode.js check --strict --file HIVE.md
+          node packages/cli/bin/thehivecode.js check --strict --file templates/HIVE.md
+          node packages/cli/bin/thehivecode.js check --strict --file templates/examples/web-app.md
+          node packages/cli/bin/thehivecode.js check --strict --file templates/examples/game.md
+          node packages/cli/bin/thehivecode.js check --strict --file templates/examples/cli.md
+
+  placeholder:
+    name: PyPI placeholder syntax
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile
+        run: python3 -m compileall -q packages/pypi/src
